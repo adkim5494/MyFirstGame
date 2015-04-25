@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    myrect.cpp
+    myrect.cpp \
+    bullet.cpp
 
 HEADERS  += mainwindow.h \
-    myrect.h
+    myrect.h \
+    bullet.h
 
 FORMS    += mainwindow.ui

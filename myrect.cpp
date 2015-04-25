@@ -1,7 +1,10 @@
 #include "MyRect.h"
+#include "bullet.h"
 #include <QKeyEvent>
+#include <QGraphicsScene>
 
 void MyRect::keyPressEvent(QKeyEvent *event){
+    //moving the rectangle
     if (event->key() == Qt::Key_Left){
         setPos(x()-10,y());
     }
@@ -10,12 +13,20 @@ void MyRect::keyPressEvent(QKeyEvent *event){
         setPos(x()+10,y());
     }
 
-    //y axis is oriented downward
     else if (event->key() == Qt::Key_Up){
-        setPos(x(),y()-10);
+        setPos(x(),y()-10); //y axis is oriented downward
     }
 
     else if (event->key() == Qt::Key_Down){
         setPos(x(),y()+10);
+    }
+
+    //shooting bullets
+    else if (event->key() == Qt::Key_Space){
+        //create a bullet object
+        Bullet* bullet = new Bullet();
+        bullet->setPos(x(),y());
+        scene()->addItem(bullet);//add bullet to the scene
+
     }
 }

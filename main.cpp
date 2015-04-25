@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
 
     //add a view
     QGraphicsView* view = new QGraphicsView(scene);
+
     view ->show();
     return a.exec();
 
