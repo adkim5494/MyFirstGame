@@ -3,7 +3,7 @@
 
 Bullet::Bullet() {
     //drew the bullet
-    setRect(0,0, 10,50); //(x,y,width,height)
+    setRect(45,-50, 10,50); //(x,y,width,height)
 
     //every time timer goes off, it calls move function of bullet
     QTimer* timer = new QTimer();

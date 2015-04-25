@@ -14,20 +14,24 @@ int main(int argc, char *argv[])
     QGraphicsScene* scene = new QGraphicsScene();
 
     //create an item to put into the scene
-    MyRect* rect = new MyRect();
-    rect->setRect(0,0,100,100);
+    MyRect* player = new MyRect();
+    player->setRect(0,0,100,100);
 
     //add the item to the scene
-    scene->addItem(rect);
+    scene->addItem(player);
 
-    //make personal rect item focusable
-    rect->setFlag(QGraphicsItem::ItemIsFocusable);
-    rect->setFocus();//rect is focused item which gets keyboard events
+    //make personal player item focusable
+    player->setFlag(QGraphicsItem::ItemIsFocusable);
+    player->setFocus();//player is focused item which gets keyboard events
 
     //add a view
     QGraphicsView* view = new QGraphicsView(scene);
 
     view ->show();
-    return a.exec();
+    view->setFixedSize(800,600);//fix the view size
+    scene->setSceneRect(0,0,800,600);//want the scene to be same size as view
 
+    player->setPos(view->width()/2-50,view->height() - player->rect().height());
+
+    return a.exec();
 }
