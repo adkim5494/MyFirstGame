@@ -1,10 +1,10 @@
-#include "MyRect.h"
+#include "Player.h"
 #include "Bullet.h"
 #include <QKeyEvent>
 #include <QGraphicsScene>
 #include "Enemy.h"
 
-void MyRect::keyPressEvent(QKeyEvent *event){
+void Player::keyPressEvent(QKeyEvent *event){
     //moving the rectangle
 
     //checking if player is outside of scene boundary
@@ -42,7 +42,7 @@ void MyRect::keyPressEvent(QKeyEvent *event){
     }
 }
 
-void MyRect::spawn(){
+void Player::spawn(){
     //create an enemy
     Enemy* enemy = new Enemy();
     scene()->addItem(enemy);//adds enemy object to the scene of the player object

@@ -9,7 +9,7 @@ Enemy::Enemy() {
     setPos(random_number,0);
 
     //drew the Enemy
-    setRect(45,-50, 100,100); //(x,y,width,height)
+    setRect(0,0, 100,100); //(x,y,width,height)
 
     //every time timer goes off, it calls move function of Enemy
     QTimer* timer = new QTimer();
