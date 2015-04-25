@@ -2,14 +2,12 @@
 #define MYRECT_H
 
 #include <QGraphicsRectItem>
-#include <Qobject>
 
-class MyRect: public QObject, public QGraphicsRectItem{
-    Q_OBJECT
+class MyRect: public QGraphicsRectItem{
+
 public:
     void keyPressEvent(QKeyEvent* event);
-public slots:
-    void spawn();
+
 };
 
 #endif // MYRECT_H
