@@ -1,6 +1,8 @@
 #include "bullet.h"
 #include <QTimer>
+#include <QGraphicsScene>
 
+#incldue <QDebug>
 Bullet::Bullet() {
     //drew the bullet
     setRect(45,-50, 10,50); //(x,y,width,height)
@@ -16,5 +18,11 @@ Bullet::Bullet() {
 void Bullet::move(){
     //move bullet up
     setPos(x(),y()-10);
+
+    if(pos().y() < 0){
+        scene()->removeItem(this);
+        delete this;
+        qDebug() <<"bullet deleted"
+    }
 }
 
