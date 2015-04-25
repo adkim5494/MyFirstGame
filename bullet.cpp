@@ -15,6 +15,8 @@ Bullet::Bullet() {
 }
 
 void Bullet::move(){
+
+
     //move bullet up
     setPos(x(),y()-10);
 

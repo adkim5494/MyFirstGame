@@ -45,5 +45,5 @@ void MyRect::keyPressEvent(QKeyEvent *event){
 void MyRect::spawn(){
     //create an enemy
     Enemy* enemy = new Enemy();
-    scene()->addItem(enemy);
+    scene()->addItem(enemy);//adds enemy object to the scene of the player object
 }

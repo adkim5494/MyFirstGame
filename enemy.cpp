@@ -3,6 +3,7 @@
 #include <QGraphicsScene>
 #include <stdlib.h> // rand() -> really large int
 
+#include <QDebug>
 Enemy::Enemy() {
     //set random position
     int random_number = rand() % 700;
@@ -24,10 +25,10 @@ void Enemy::move(){
     setPos(x(),y()+10);
 
     //delete Enemy object if off the scene
-    if(pos().y() < 0){
+    if(pos().y() > 800){
         scene()->removeItem(this);
         delete this;
-
+    qDebug() <<"enemy deleted";
     }
 }
 
