@@ -1,7 +1,8 @@
 #include "MyRect.h"
-#include "bullet.h"
+#include "Bullet.h"
 #include <QKeyEvent>
 #include <QGraphicsScene>
+#include "Enemy.h"
 
 void MyRect::keyPressEvent(QKeyEvent *event){
     //moving the rectangle
@@ -39,4 +40,10 @@ void MyRect::keyPressEvent(QKeyEvent *event){
         scene()->addItem(bullet);//add bullet to the scene
 
     }
+}
+
+void MyRect::spawn(){
+    //create an enemy
+    Enemy* enemy = new Enemy();
+    scene()->addItem(enemy);
 }

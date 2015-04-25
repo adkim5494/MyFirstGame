@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
-
+#include <QTimer>
 #include <QGraphicsScene>
 #include "MyRect.h"
 #include <QGraphicsView>
@@ -33,5 +33,9 @@ int main(int argc, char *argv[])
 
     player->setPos(view->width()/2-50,view->height() - player->rect().height());
 
+    //spawn enemies
+    QTimer* timer = new QTimer;
+    QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
+    timer->start(2000); //spawn enemy every 2000 miliseconds
     return a.exec();
 }
