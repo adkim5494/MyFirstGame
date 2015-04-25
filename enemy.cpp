@@ -25,7 +25,7 @@ void Enemy::move(){
     setPos(x(),y()+10);
 
     //delete Enemy object if off the scene
-    if(pos().y() > 800){
+    if(pos().y() > 600){
         scene()->removeItem(this);
         delete this;
     qDebug() <<"enemy deleted";
