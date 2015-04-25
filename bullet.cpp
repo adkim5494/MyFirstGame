@@ -2,7 +2,7 @@
 #include <QTimer>
 #include <QGraphicsScene>
 
-#incldue <QDebug>
+#include <QDebug>
 Bullet::Bullet() {
     //drew the bullet
     setRect(45,-50, 10,50); //(x,y,width,height)
@@ -22,7 +22,7 @@ void Bullet::move(){
     if(pos().y() < 0){
         scene()->removeItem(this);
         delete this;
-        qDebug() <<"bullet deleted"
+        qDebug() <<"bullet deleted";
     }
 }
 
