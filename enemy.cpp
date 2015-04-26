@@ -1,7 +1,11 @@
 #include "Enemy.h"
+#include "Score.h"
+#include "Game.h"
 #include <QTimer>
 #include <QGraphicsScene>
 #include <stdlib.h> // rand() -> really large int
+
+extern Game* game; //there is an external global object called game
 
 Enemy::Enemy() {
     //set random position
@@ -25,6 +29,10 @@ void Enemy::move(){
 
     //delete Enemy object if off the scene
     if(pos().y() > 600){
+
+        //decrease the health if enemy is off screen
+        game->health->decrease_health();
+
         scene()->removeItem(this);
         delete this;
     }
