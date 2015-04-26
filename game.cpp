@@ -19,7 +19,7 @@ Game::Game(QWidget *parent){
     view->setFixedSize(800,600);//fix the view size
 
     // create the player
-    player = new Player();
+    player  = new Player();
     player->setRect(0,0,100,100); // change the rect from 0x0 (default) to 100x100 pixels
     player->setPos(view->width()/2-50,view->height() - player->rect().height());
     // make the player focusable and set it to be the current focus
@@ -29,8 +29,8 @@ Game::Game(QWidget *parent){
     scene->addItem(player);
 
     // create the score/health
-    //score = new Score();
-    //scene->addItem(score);
+    score = new Score();
+    scene->addItem(score);
     //health = new Health();
     //health->setPos(health->x(),health->y()+25);
     //scene->addItem(health);

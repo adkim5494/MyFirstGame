@@ -17,12 +17,14 @@ SOURCES += main.cpp\
     Enemy.cpp \
     Bullet.cpp \
     Player.cpp \
-    Game.cpp
+    Game.cpp \
+    Score.cpp
 
 HEADERS  += mainwindow.h \
     Enemy.h \
     Bullet.h \
     Player.h \
-    Game.h
+    Game.h \
+    Score.h
 
 FORMS    += mainwindow.ui

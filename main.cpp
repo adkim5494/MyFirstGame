@@ -1,7 +1,7 @@
 #include <QApplication>
 #include "Game.h"
 
-Game * game;
+Game * game; //make game object global
 
 int main(int argc, char *argv[]){
     QApplication a(argc, argv);

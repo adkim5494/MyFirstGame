@@ -4,7 +4,7 @@
 #include <QGraphicsRectItem>
 #include <QObject>
 
-//signals and slots must be derived from QObjects and add teh Q_OBJECT macro
+//signals and slots must be derived from QObjects and add the Q_OBJECT macro
 class Bullet: public QObject, public QGraphicsRectItem{
     Q_OBJECT
 public:

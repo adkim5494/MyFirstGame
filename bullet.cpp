@@ -1,7 +1,11 @@
-#include "bullet.h"
-#include "enemy.h"
+#include "Bullet.h"
+#include "Enemy.h"
+#include "Score.h"
+#include "Game.h"
 #include <QTimer>
 #include <QGraphicsScene>
+
+extern Game* game; //there is an external global object called game
 
 Bullet::Bullet() {
     //drew the bullet
@@ -18,16 +22,24 @@ Bullet::Bullet() {
 void Bullet::move(){
     //if bullet collides with enemy, destroy both
     QList<QGraphicsItem*> colliding_items = collidingItems();
+
     //contains list of all objects which bullet is colliding with
     for (int i=0, n=colliding_items.size(); i<n; ++i){
         if (typeid(*(colliding_items[i])) == typeid(Enemy)){
-            //remove them both
+
+            //increase the score
+            game->score->increase_score();
+
+            //remove Bullet and Enemy from scene (still on heap)
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
-            //delete them both
+
+            //delete Bullet and Enemy
             delete colliding_items[i];
             delete this;
-            return;//escape this member fcn if enemy is deleted
+
+            //return (code below refers to non-existent bullet)
+            return;
         }
     }
 
