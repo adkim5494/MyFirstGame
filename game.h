@@ -6,7 +6,7 @@
 #include <QGraphicsScene>
 #include "Player.h"
 #include "Score.h"
-//#include "Health.h"
+#include "Health.h"
 
 //Game View Item holds pointers to scene, score, and player
 class Game: public QGraphicsView{
@@ -16,7 +16,7 @@ public:
     QGraphicsScene* scene;
     Player* player;
     Score* score;
-    //Health * health;
+    Health * health;
 
 };
 
