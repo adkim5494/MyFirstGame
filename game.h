@@ -2,7 +2,6 @@
 #define GAME_H
 
 #include <QGraphicsView>
-#include <QWidget>
 #include <QGraphicsScene>
 #include "Player.h"
 #include "Score.h"
@@ -10,14 +9,22 @@
 
 //Game View Item holds pointers to scene, score, and player
 class Game: public QGraphicsView{
+    Q_OBJECT
 public:
-    Game(QWidget* parent = 0);
+    //constructor
+    Game(QWidget* parent = NULL);
 
+    //public methods
+    void displayMainMenu();
+
+    //public attributes
     QGraphicsScene* scene;
     Player* player;
     Score* score;
     Health * health;
 
+public slots:
+    void start();
 };
 
 #endif // GAME_H
