@@ -19,8 +19,7 @@ SOURCES += main.cpp\
     Player.cpp \
     Game.cpp \
     Score.cpp \
-    Health.cpp \
-    Button.cpp
+    Health.cpp
 
 HEADERS  += mainwindow.h \
     Enemy.h \
@@ -28,7 +27,6 @@ HEADERS  += mainwindow.h \
     Player.h \
     Game.h \
     Score.h \
-    Health.h \
-    Button.h
+    Health.h
 
 FORMS    += mainwindow.ui
