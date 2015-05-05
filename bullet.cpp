@@ -7,9 +7,13 @@
 
 extern Game* game; //there is an external global object called game
 
-Bullet::Bullet() {
-    //drew the bullet
+Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
+    // draw graphics
+    setPixmap(QPixmap(":/images/bullet.png"));
+
+    /*//drew the bullet
     setRect(45,-50, 10,50); //(x,y,width,height)
+    */
 
     //every time timer goes off, it calls move function of bullet
     QTimer* timer = new QTimer();

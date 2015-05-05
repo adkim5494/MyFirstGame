@@ -4,6 +4,7 @@
 #include <QFont>
 #include "Enemy.h"
 #include "Button.h"
+#include <QImage>
 
 Game::Game(QWidget *parent){
     // create the scene
@@ -18,8 +19,6 @@ Game::Game(QWidget *parent){
     //add a view
     QGraphicsView* view = new QGraphicsView(scene);
     view->setFixedSize(800,600);//fix the view size
-
-    show();
 }
 
 void Game::start(){
@@ -60,8 +59,6 @@ void Game::start(){
     QTimer * timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);//enemy spawns every 2000 miliseconds
-
-    show();
 }
 
 void Game::displayMainMenu(){
@@ -89,4 +86,6 @@ void Game::displayMainMenu(){
     quitButton->setPos(qxPos,qyPos);
     connect(quitButton,SIGNAL(clicked()),this,SLOT(close()));
     scene->addItem(quitButton);
+
+    show();
 }

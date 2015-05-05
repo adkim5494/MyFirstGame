@@ -32,3 +32,8 @@ HEADERS  += mainwindow.h \
     Button.h
 
 FORMS    += mainwindow.ui
+
+DISTFILES +=
+
+RESOURCES += \
+    res.qrc
