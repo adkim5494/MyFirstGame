@@ -25,6 +25,8 @@ public:
 
 public slots:
     void start();
+    void instr();//instructions
+    void back();//goes back to main menu
 };
 
 #endif // GAME_H

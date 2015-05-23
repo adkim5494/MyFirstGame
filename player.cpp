@@ -7,28 +7,30 @@
 void Player::keyPressEvent(QKeyEvent *event){
     //moving the rectangle
 
+    int step_size = 10;
+
     //checking if player is outside of scene boundary
     if (event->key() == Qt::Key_Left){
         if (pos().x() > 0){
-        setPos(x()-10,y());
+        setPos(x()-step_size,y());
         }
     }
 
     else if (event->key() == Qt::Key_Right){
         if (pos().x()+100 < 800){
-        setPos(x()+10,y());
+        setPos(x()+step_size,y());
         }
     }
 
     else if (event->key() == Qt::Key_Up){
         if (pos().y() > 0){
-        setPos(x(),y()-10); //y axis is oriented downward
+        setPos(x(),y()-step_size); //y axis is oriented downward
         }
     }
 
     else if (event->key() == Qt::Key_Down){
         if (pos().y()+100 < 600){
-        setPos(x(),y()+10);
+        setPos(x(),y()+step_size);
         }
     }
 
