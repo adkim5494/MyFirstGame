@@ -120,13 +120,12 @@ void Game::instr(){
     scene->addItem(instrTitle);
 
     // create the instructions text
-    QString instructions = "Use the arrow keys to control the Jet Fighter. /n"
-                           "Don't allow any enemies to go past you or else you lose health /n";
+    QString instructions = "        Use the arrow keys to control the Jet Fighter.\nDon't allow any enemies to go past you or else you lose health. \n         The game ends when your health reaches 0. \n";
     QGraphicsTextItem* instrText = new QGraphicsTextItem(instructions);
     QFont instrFont("comic sans",25);
     instrText->setFont(instrFont);
     int ixPos = this->width()/2 - instrText->boundingRect().width()/2;
-    int iyPos = 75;
+    int iyPos = 250;
     instrText->setPos(ixPos,iyPos);
     scene->addItem(instrText);
 
