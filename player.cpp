@@ -4,8 +4,18 @@
 #include <QGraphicsScene>
 #include "Enemy.h"
 
+Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
+
+    /* // set bullet sound
+    bulletsound = new QMediaPlayer();
+    bulletsound->setMedia(QUrl("qrc:/sounds/bullet.wav"));
+    */
+    // set graphic
+    setPixmap(QPixmap(":/images/ship1.png"));
+}
+
 void Player::keyPressEvent(QKeyEvent *event){
-    //moving the rectangle
+    //moving the player
 
     int step_size = 10;
 
@@ -38,8 +48,8 @@ void Player::keyPressEvent(QKeyEvent *event){
     else if (event->key() == Qt::Key_Space){
         //create a bullet object
         Bullet* bullet = new Bullet();
-        bullet->setPos(x()+22.5,y());
-        scene()->addItem(bullet);//add bullet to the scene
+        bullet->setPos(x()+50,y()); //adjusting bullet position
+        scene()->addItem(bullet);// add bullet to the scene
 
     }
 }

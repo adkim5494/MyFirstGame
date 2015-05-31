@@ -8,6 +8,10 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QLabel>
+#include <QBrush>
+
+//background provided by davis123
+//space ships http://opengameart.org/users/skorpio
 
 Game::Game(QWidget *parent){
     // create the scene
@@ -31,6 +35,7 @@ void Game::start(){
     // create the scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
+    setBackgroundBrush(QBrush(QImage(":/images/bg1.png")));
 
     // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
     // it can be used to visualize scenes)
@@ -42,14 +47,13 @@ void Game::start(){
     view->setFixedSize(800,600);//fix the view size
 
     // create the player
-    player  = new Player();
-    player->setRect(0,0,100,100); // change the rect from 0x0 (default) to 100x100 pixels
-    player->setPos(view->width()/2-50,view->height() - player->rect().height());
-    // make the player focusable and set it to be the current focus
-    player->setFlag(QGraphicsItem::ItemIsFocusable);
-    player->setFocus();
-    // add the player to the scene
-    scene->addItem(player);
+     player = new Player();
+     player->setPos(300,475);
+     // make the player focusable and set it to be the current focus
+     player->setFlag(QGraphicsItem::ItemIsFocusable);
+     player->setFocus();
+     // add the player to the scene
+     scene->addItem(player);
 
     // create the score/health
     score = new Score();
@@ -120,13 +124,12 @@ void Game::instr(){
     scene->addItem(instrTitle);
 
     // create the instructions text
-    QString instructions = "Use the arrow keys to control the Jet Fighter. /n"
-                           "Don't allow any enemies to go past you or else you lose health /n";
+    QString instructions = "        Use the arrow keys to control the Jet Fighter.\nDon't allow any enemies to go past you or else you lose health. \n         The game ends when your health reaches 0. \n";
     QGraphicsTextItem* instrText = new QGraphicsTextItem(instructions);
     QFont instrFont("comic sans",25);
     instrText->setFont(instrFont);
     int ixPos = this->width()/2 - instrText->boundingRect().width()/2;
-    int iyPos = 75;
+    int iyPos = 250;
     instrText->setPos(ixPos,iyPos);
     scene->addItem(instrText);
 
