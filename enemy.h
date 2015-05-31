@@ -1,11 +1,13 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
+#include <QGraphicsItem>
 #include <QObject>
 
+
 //signals and slots must be derived from QObjects and add the Q_OBJECT macro
-class Enemy: public QObject, public QGraphicsRectItem{
+class Enemy: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     Enemy();

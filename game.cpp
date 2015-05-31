@@ -5,17 +5,11 @@
 #include "Enemy.h"
 #include "Button.h"
 #include <QImage>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QLabel>
 #include <QBrush>
-
-//background provided by davis123
-//space ships http://opengameart.org/users/skorpio
 
 Game::Game(QWidget *parent){
     // create the scene
-    scene = new QGraphicsScene();
+    scene = new QGraphicsScene(); //x goes downward (v) y goes rightward(>)
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
 
     // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
@@ -48,7 +42,7 @@ void Game::start(){
 
     // create the player
      player = new Player();
-     player->setPos(300,475);
+     player->setPos(350,475);
      // make the player focusable and set it to be the current focus
      player->setFlag(QGraphicsItem::ItemIsFocusable);
      player->setFocus();

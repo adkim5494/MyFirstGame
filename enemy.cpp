@@ -10,10 +10,11 @@ extern Game* game; //there is an external global object called game
 Enemy::Enemy() {
     //set random position
     int random_number = rand() % 700;
-    setPos(random_number,0);
+    setPos(random_number,-80);
 
-    //drew the Enemy
-    setRect(0,0, 100,100); //(x,y,width,height)
+    setPixmap(QPixmap(":/images/enemy1.png"));
+    setTransformOriginPoint(50,50);
+    setRotation(180);
 
     //every time timer goes off, it calls move function of Enemy
     QTimer* timer = new QTimer();
@@ -25,7 +26,7 @@ Enemy::Enemy() {
 
 void Enemy::move(){
     //move Enemy down
-    setPos(x(),y()+10);
+    setPos(x(),y()+8); // adjusting enemy speed
 
     //delete Enemy object if off the scene
     if(pos().y() > 600){

@@ -11,3 +11,7 @@ int main(int argc, char *argv[]){
 
     return a.exec();
 }
+
+//http://www.freebackgroundremoval.com/
+//background provided by davis123
+//space ships http://opengameart.org/users/skorpio
