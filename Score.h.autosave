@@ -9,8 +9,16 @@
  */
 class Score: public QGraphicsTextItem {
 public:
+    
     Score(QGraphicsItem* parent = 0);
+    /**
+     * @brief increases the player score
+     */
     void increase_score();
+    /**
+     * @brief yields the score of the player
+     * @return returns t
+     */
     int get_score();
 
 private:

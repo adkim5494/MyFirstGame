@@ -14,7 +14,7 @@ Health::Health(QGraphicsItem* parent): QGraphicsRectItem(parent) {
 
 void Health::decrease_health() {
 
-    health-=50;
+    health-=5;
 
     double fill = double(health) / 100;
     setRect(rect().x(),rect().y(),fill * 100,30);

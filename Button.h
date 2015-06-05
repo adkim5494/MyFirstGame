@@ -4,13 +4,20 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsSceneMouseEvent>
 
+/**
+ * @class Button
+ * @brief The Button class is a custom class implemented to take care of some graphic interface.
+ */
+
 class Button:public QObject, public QGraphicsRectItem{
     Q_OBJECT
 public:
     // constructors
     Button(QString name, QGraphicsItem* parent=NULL);
 
-    // public methods (events)
+    /**
+     * @brief responsible for making the events for the mouse on the button
+     */
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
     void hoverLeaveEvent(QGraphicsSceneHoverEvent *event);

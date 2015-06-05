@@ -63,7 +63,11 @@ void Game::start(){
     // spawn enemies
     QTimer* timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
-    timer->start(2000);//enemy spawns every 2000 miliseconds
+    timer->start(5000);//enemy spawns every 2000 miliseconds
+
+    if ( score->get_score() == 10){
+        timer->start(1000);
+    }
 }
 
 void Game::back(){
