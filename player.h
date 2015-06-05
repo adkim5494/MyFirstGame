@@ -15,7 +15,6 @@ public:
     QSet<int> keysPressed;
 public slots:
     void spawn();
-    void generate();
 };
 
 #endif // PLAYER_H
