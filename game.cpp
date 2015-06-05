@@ -29,7 +29,6 @@ void Game::start(){
     // create the scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
-    setBackgroundBrush(QBrush(QImage(":/images/bg1.png")));
 
     // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
     // it can be used to visualize scenes)
@@ -57,7 +56,7 @@ void Game::start(){
     scene->addItem(health);
 
     // spawn enemies
-    QTimer * timer = new QTimer();
+    QTimer* timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);//enemy spawns every 2000 miliseconds
 }
@@ -118,7 +117,7 @@ void Game::instr(){
     scene->addItem(instrTitle);
 
     // create the instructions text
-    QString instructions = "        Use the arrow keys to control the Jet Fighter.\nDon't allow any enemies to go past you or else you lose health. \n         The game ends when your health reaches 0. \n";
+    QString instructions = "        Use the arrow keys to control the Jet Fighter.\n                       Use the SpaceBar to shoot\n  Don't allow any enemies to go past you or else you lose health. \n         The game ends when your health reaches 0. \n";
     QGraphicsTextItem* instrText = new QGraphicsTextItem(instructions);
     QFont instrFont("comic sans",25);
     instrText->setFont(instrFont);

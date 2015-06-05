@@ -21,7 +21,7 @@ public:
     QGraphicsScene* scene;
     Player* player;
     Score* score;
-    Health * health;
+    Health* health;
 
 public slots:
     void start();
