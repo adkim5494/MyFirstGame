@@ -8,6 +8,10 @@
 #include "Health.h"
 
 //Game View Item holds pointers to scene, score, and player
+
+class Game;
+extern Game* game;
+
 class Game: public QGraphicsView{
     Q_OBJECT
 public:
@@ -16,6 +20,7 @@ public:
 
     //public methods
     void displayMainMenu();
+    void gameOver();
 
     //public attributes
     QGraphicsScene* scene;
@@ -25,8 +30,8 @@ public:
 
 public slots:
     void start();
-    void instr();//instructions
-    void back();//goes back to main menu
+    void instr();// instructions
+    void back();// goes back to main menu
 };
 
 #endif // GAME_H

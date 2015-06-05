@@ -19,7 +19,6 @@ void Score::increase_score() {
 }
 
 
-
 int Score::get_score() {
     return score;
 }

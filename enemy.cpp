@@ -3,7 +3,7 @@
 #include "Game.h"
 #include <QTimer>
 #include <QGraphicsScene>
-#include <stdlib.h> // rand() -> really large int
+#include <stdlib.h>
 
 extern Game* game; //there is an external global object called game
 

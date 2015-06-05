@@ -1,24 +1,29 @@
 #include "Health.h"
-#include <QFont>
+#include <QGraphicsRectItem>
+#include <QBrush>
+#include "Game.h"
 
-Health::Health(QGraphicsItem* parent): QGraphicsTextItem(parent) {
+Health::Health(QGraphicsItem* parent): QGraphicsRectItem(parent) {
     //initialize the score to 0
     health = 100;
 
-    //draw the Health text
-    setPlainText(QString("Health: ") + QString::number(health)); //Health: 100;
-    setDefaultTextColor(Qt::green);
-    setFont(QFont("Arial", 16)); //Font, Size
+    setRect(0,0,100,30);
+    setBrush(QBrush(Qt::red));
 
 }
 
 void Health::decrease_health() {
-    health--;
-    //re-draw the Health text
-    setPlainText(QString("Health: ") + QString::number(health)); //Health: 99;
+
+    health-=50;
+
+    double fill = double(health) / 100;
+    setRect(rect().x(),rect().y(),fill * 100,30);
+
+    if (health <= 0){
+        game->gameOver();
+    }
+
 }
-
-
 
 int Health::get_health() {
     return health;

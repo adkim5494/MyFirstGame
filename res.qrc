@@ -5,4 +5,8 @@
         <file>enemy1.png</file>
         <file>ship1.png</file>
     </qresource>
+    <qresource prefix="/sounds">
+        <file>bgmusic.mp3</file>
+        <file>laser.wav</file>
+    </qresource>
 </RCC>

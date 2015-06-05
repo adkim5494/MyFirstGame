@@ -8,6 +8,7 @@
 #include <QBrush>
 
 Game::Game(QWidget *parent){
+
     // create the scene
     scene = new QGraphicsScene(); //x goes downward (v) y goes rightward(>)
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
@@ -20,6 +21,7 @@ Game::Game(QWidget *parent){
     //add a view
     QGraphicsView* view = new QGraphicsView(scene);
     view->setFixedSize(800,600);//fix the view size
+
 }
 
 void Game::start(){
@@ -49,9 +51,11 @@ void Game::start(){
      // add the player to the scene
      scene->addItem(player);
 
-    // create the score/health
+    // create the score
     score = new Score();
     scene->addItem(score);
+
+    // create the health
     health = new Health();
     health->setPos(health->x(),health->y()+25);
     scene->addItem(health);
@@ -65,6 +69,40 @@ void Game::start(){
 void Game::back(){
     scene->clear();
     displayMainMenu();
+}
+
+void Game::gameOver(){
+
+    //disable all scene items
+    for (size_t i = 0, n = scene->items().size(); i < n; i++){
+        scene->items()[i]->setEnabled(false);
+    }
+       //scene->clear();
+
+    QGraphicsTextItem* goText = new QGraphicsTextItem(QString("GAME OVER"));
+    QFont goFont("comic sans",50);
+    goText->setFont(goFont);
+    int goxPos = this->width()/2 - goText->boundingRect().width()/2;
+    int goyPos = 200;
+    goText->setPos(goxPos,goyPos);
+    scene->addItem(goText);
+
+    // create playAgain button
+    Button* playAgain = new Button(QString("Play Again"));
+    int pgxPos = this->width()/2 - goText->boundingRect().width()/2 + 35;
+    int pgyPos = 280;
+    playAgain->setPos(pgxPos,pgyPos);
+    scene->addItem(playAgain);
+    connect(playAgain,SIGNAL(clicked()),this,SLOT(start()));
+
+    // create Quit button
+    Button* quit = new Button(QString("Quit"));
+    int qxPos = this->width()/2 - goText->boundingRect().width()/2 + 35;
+    int qyPos = 350;
+    quit->setPos(qxPos,qyPos);
+    scene->addItem(quit);
+    connect(quit,SIGNAL(clicked()),this,SLOT(close()));
+
 }
 
 void Game::displayMainMenu(){

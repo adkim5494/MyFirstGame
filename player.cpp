@@ -5,11 +5,6 @@
 #include "Enemy.h"
 
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
-
-    /* // set bullet sound
-    bulletsound = new QMediaPlayer();
-    bulletsound->setMedia(QUrl("qrc:/sounds/bullet.wav"));
-    */
     // set graphic
     setPixmap(QPixmap(":/images/ship1.png"));
 }
@@ -105,5 +100,4 @@ void Player::spawn(){
     Enemy* enemy = new Enemy();
     scene()->addItem(enemy);//adds enemy object to the scene of the player object
 }
-
 

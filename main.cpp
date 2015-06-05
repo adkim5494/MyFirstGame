@@ -15,3 +15,4 @@ int main(int argc, char *argv[]){
 //http://www.freebackgroundremoval.com/
 //background provided by davis123
 //space ships http://opengameart.org/users/skorpio
+//bg music provided by FoxSynergy
