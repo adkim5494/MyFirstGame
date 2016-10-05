@@ -4,9 +4,13 @@
         <file>bg1.png</file>
         <file>enemy1.png</file>
         <file>ship1.png</file>
+        <file>jet_background.jpg</file>
     </qresource>
     <qresource prefix="/sounds">
         <file>bgmusic.mp3</file>
         <file>laser.wav</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file>raiden.ttf</file>
     </qresource>
 </RCC>

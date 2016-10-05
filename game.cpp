@@ -6,6 +6,9 @@
 #include "Button.h"
 #include <QImage>
 #include <QBrush>
+#include <QFontDatabase>
+#include <QFile>
+#include <QDebug>
 
 Game::Game(QWidget *parent){
 
@@ -110,9 +113,27 @@ void Game::gameOver(){
 }
 
 void Game::displayMainMenu(){
+    scene = new QGraphicsScene();
+    scene->setSceneRect(0,0,710,500); // make the scene 800x600 instead of infinity by infinity (default)
+    setBackgroundBrush(QBrush(QImage(":/images/jet_background.jpg")));
+
+    // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
+    // it can be used to visualize scenes)
+    setScene(scene);
+    setFixedSize(710,500);
+
+    //add a view
+    QGraphicsView* view = new QGraphicsView(scene);
+    view->setFixedSize(710,500);//fix the view size
+
     // create the title text
     QGraphicsTextItem* titleText = new QGraphicsTextItem(QString("SUPER ULTIMATE JET FIGHTER"));
-    QFont titleFont("comic sans",50);
+
+    titleText->setDefaultTextColor("Red");
+    QFont titleFont;
+    titleFont.setFamily("NEW DROP ERA");
+    titleFont.setPointSize(40);
+
     titleText->setFont(titleFont);
     int txPos = this->width()/2 - titleText->boundingRect().width()/2;
     int tyPos = 150;
@@ -152,7 +173,8 @@ void Game::instr(){
 
     // create the instructions title
     QGraphicsTextItem* instrTitle = new QGraphicsTextItem(QString("SUPER ULTIMATE INSTRUCTIONS"));
-    QFont instrTitleFont("comic sans",50);
+    instrTitle->setDefaultTextColor("red");
+    QFont instrTitleFont("comic sans",40);
     instrTitle->setFont(instrTitleFont);
     int txPos = this->width()/2 - instrTitle->boundingRect().width()/2;
     int tyPos = 25;
@@ -162,7 +184,8 @@ void Game::instr(){
     // create the instructions text
     QString instructions = "        Use the arrow keys to control the Jet Fighter.\n                       Use the SpaceBar to shoot\n  Don't allow any enemies to go past you or else you lose health. \n         The game ends when your health reaches 0. \n";
     QGraphicsTextItem* instrText = new QGraphicsTextItem(instructions);
-    QFont instrFont("comic sans",25);
+    instrText->setDefaultTextColor("red");
+    QFont instrFont("comic sans",20);
     instrText->setFont(instrFont);
     int ixPos = this->width()/2 - instrText->boundingRect().width()/2;
     int iyPos = 250;
